@@ -48,13 +48,13 @@ def add_logo(logo_url: str, height: int = 120):
     )
 
 
-add_logo(r"C:\Users\mstfr\PycharmProjects\Final\dataset\mihenk_logo.png")
+add_logo(r"dataset/mihenk_logo.png")
 
 
 st.title(" :bar_chart: Müşteri Verisi:")
 st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allow_html=True)
 
-df = pd.read_csv(r"C:\Users\mstfr\PycharmProjects\FinalProject\dataset\superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
+df = pd.read_csv(r"dataset/superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
 df.rename(columns=lambda x: x.replace(' ', '_').replace('-', '_'), inplace=True)
 
 df['Order_Date'] = pd.to_datetime(df['Order_Date'])
