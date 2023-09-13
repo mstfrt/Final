@@ -2,3 +2,4 @@ datetime
 plotly.express
 streamlit
 lifetimes
+pandas
