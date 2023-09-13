@@ -54,7 +54,7 @@ add_logo(r"dataset/mihenk_logo.png")
 st.title(" :bar_chart: Müşteri Verisi:")
 st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allow_html=True)
 
-df = pd.read_csv(r"dataset/final_project_dataset.csv", encoding="ISO-8859-1")
+df = pd.read_csv(r"dataset/final_customers.csv", encoding="ISO-8859-1")
 
 cus_final = df.copy()
 
