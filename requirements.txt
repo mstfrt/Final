@@ -1,3 +1,5 @@
 datetime
 plotly.express
 streamlit
+BetaGeoFitter
+GammaGammaFitter
