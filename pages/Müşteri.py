@@ -51,7 +51,8 @@ def add_logo(logo_url: str, height: int = 120):
 add_logo(r"dataset/mihenk_logo.png")
 
 
-st.title(" :bar_chart: Müşteri Verisi:")
+new_title = '<p style="font-family:sans-serif; color: white; font-size: 50px; text-align: center; margin-top: 30px; margin-bottom: 20px">👤 Müşteri</p>'
+st.markdown(new_title, unsafe_allow_html=True)
 st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allow_html=True)
 
 df = pd.read_csv(r"dataset/final_customers.csv", encoding="ISO-8859-1")
