@@ -92,7 +92,7 @@ clm1, clm2 = st.columns([1, 1])
 
 with clm1:
     st.subheader(" :bar_chart: Filtrelenmiş Müşteri Verisi:")
-    with st.expander("Müşteri Verisi:"):
+    with st.expander("Müşteri Verisi:", expanded=True):
         if n1 == 0:
             st.write(filtered_df1.sort_values(by="clv", ascending=False))
         else:
