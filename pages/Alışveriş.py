@@ -140,7 +140,7 @@ with cl2:
             help="Click here to download the data as a CSV file",
         )
 
-filtered_df["month_year"] = filtered_df["Order_Date"].dt.to_period("M")
+filtered_df["month_year"] = filtered_df["Order_Date"].dt.to_period("M", errors='coerce')
 st.subheader("Zamana Göre Satışların Dağılım Grafiği")
 
 linechart = pd.DataFrame(
