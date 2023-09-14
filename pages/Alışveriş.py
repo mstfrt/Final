@@ -274,6 +274,12 @@ n = 0
 
 st.sidebar.header("Filtre Seçiniz: ")
 
+customer = st.sidebar.text_input("Müşteri ID")
+if not customer:
+    df = df.copy()
+else:
+    df = df[df["Customer_ID"] == customer]
+
 category = st.sidebar.multiselect("Kategori:", df["Category"].unique())
 if not category:
     df2 = df.copy()
@@ -344,7 +350,7 @@ with cl1:
         st.write(category_df.style.background_gradient(cmap="PuBu"))
         csv = category_df.to_csv(index=False).encode("utf-8")
         st.download_button(
-            "Download Data",
+            "Veriyi İndir",
             data=csv,
             file_name="Category.csv",
             mime="text/csv",
@@ -357,7 +363,7 @@ with cl2:
         st.write(region.style.background_gradient(cmap="Oranges"))
         csv = region.to_csv(index=False).encode("utf-8")
         st.download_button(
-            "Download Data",
+            "Veriyi İndir",
             data=csv,
             file_name="Region.csv",
             mime="text/csv",
@@ -385,7 +391,7 @@ with st.expander("TimeSeries Verilerini Görüntüle:"):
     st.write(linechart.T.style.background_gradient(cmap="Blues"))
     csv = linechart.to_csv(index=False).encode("utf-8")
     st.download_button(
-        "Download Data", data=csv, file_name="TimeSeries.csv", mime="text/csv"
+        "Veriyi İndir", data=csv, file_name="TimeSeries.csv", mime="text/csv"
     )
 
 # Create a treem based on Region, category, sub-Category
