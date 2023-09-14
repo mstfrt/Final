@@ -56,7 +56,7 @@ new_title = '<p style="font-family:sans-serif; color: white; font-size: 50px; te
 st.markdown(new_title, unsafe_allow_html=True)
 st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allow_html=True)
 
-df = pd.read_csv(r"C:\Users\mstfr\PycharmProjects\Final\dataset\superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
+df = pd.read_csv(r"dataset/superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
 df.rename(columns=lambda x: x.replace(' ', '_').replace('-', '_'), inplace=True)
 df['Order_Date'] = pd.to_datetime(df['Order_Date'])
 df['Ship_Date'] = pd.to_datetime(df['Ship_Date'])
@@ -319,9 +319,9 @@ filtered_df = filtered_df[(filtered_df["Order_Date"] >= date1) & (filtered_df["O
 
 with st.expander("Filtrelenmiş Alışveriş Verisi:", expanded=True):
     if n == 0:
-        st.write(filtered_df.iloc[:5, :].style.background_gradient(cmap="Blues"))
+        st.write(filtered_df.iloc[:5, :])
     else:
-        st.write(filtered_df.iloc[:n, :].style.background_gradient(cmap="Blues"))
+        st.write(filtered_df.iloc[:n, :])
 
 
 category_df = filtered_df.groupby(by=["Category"], as_index=False)["Sales"].sum()
@@ -346,7 +346,7 @@ with col2:
 cl1, cl2 = st.columns((2))
 with cl1:
     with st.expander("Category Verisi"):
-        st.write(category_df.style.background_gradient(cmap="PuBu"))
+        st.write(category_df)
         csv = category_df.to_csv(index=False).encode("utf-8")
         st.download_button(
             "Veriyi İndir",
@@ -359,7 +359,7 @@ with cl1:
 with cl2:
     with st.expander("Bölge Verisi"):
         region = filtered_df.groupby(by="Region", as_index=False)["Sales"].sum()
-        st.write(region.style.background_gradient(cmap="Oranges"))
+        st.write(region)
         csv = region.to_csv(index=False).encode("utf-8")
         st.download_button(
             "Veriyi İndir",
@@ -387,7 +387,7 @@ fig2 = px.line(
 st.plotly_chart(fig2, use_container_width=True)
 
 with st.expander("TimeSeries Verilerini Görüntüle:"):
-    st.write(linechart.T.style.background_gradient(cmap="Blues"))
+    st.write(linechart.T)
     csv = linechart.to_csv(index=False).encode("utf-8")
     st.download_button(
         "Veriyi İndir", data=csv, file_name="TimeSeries.csv", mime="text/csv"
@@ -433,7 +433,7 @@ with st.expander("Özet_Tablo"):
     sub_category_Year = pd.pivot_table(
         data=filtered_df, values="Sales", index=["Sub_Category"], columns="month"
     )
-    st.write(sub_category_Year.style.background_gradient(cmap="Blues"))
+    st.write(sub_category_Year)
 
 # Create a scatter plot
 data1 = px.scatter(filtered_df, x="Sales", y="Profit", size="Quantity")
