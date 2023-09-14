@@ -50,7 +50,7 @@ def add_logo(logo_url: str, height: int = 120):
     )
 
 
-add_logo(r"C:\Users\mstfr\PycharmProjects\Final\dataset\mihenk_logo.png")
+add_logo(r"dataset/mihenk_logo.png")
 
 new_title = '<p style="font-family:sans-serif; color: white; font-size: 50px; text-align: center; margin-top: 30px; margin-bottom: 20px">📊 Alışveriş</p>'
 st.markdown(new_title, unsafe_allow_html=True)
