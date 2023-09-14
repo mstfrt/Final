@@ -117,7 +117,7 @@ with col2:
 cl1, cl2 = st.columns((2))
 with cl1:
     with st.expander("Category Verisi"):
-        st.write(category_df.style.background_gradient(cmap="PuBu"))
+        st.write(category_df)
         csv = category_df.to_csv(index=False).encode("utf-8")
         st.download_button(
             "Download Data",
@@ -130,7 +130,7 @@ with cl1:
 with cl2:
     with st.expander("Bölge Verisi"):
         region = filtered_df.groupby(by="Region", as_index=False)["Sales"].sum()
-        st.write(region.style.background_gradient(cmap="Oranges"))
+        st.write(region)
         csv = region.to_csv(index=False).encode("utf-8")
         st.download_button(
             "Download Data",
@@ -158,7 +158,7 @@ fig2 = px.line(
 st.plotly_chart(fig2, use_container_width=True)
 
 with st.expander("TimeSeries Verilerini Görüntüle:"):
-    st.write(linechart.T.style.background_gradient(cmap="Blues"))
+    st.write(linechart.T)
     csv = linechart.to_csv(index=False).encode("utf-8")
     st.download_button(
         "Download Data", data=csv, file_name="TimeSeries.csv", mime="text/csv"
@@ -204,7 +204,7 @@ with st.expander("Özet_Tablo"):
     sub_category_Year = pd.pivot_table(
         data=filtered_df, values="Sales", index=["Sub_Category"], columns="month"
     )
-    st.write(sub_category_Year.style.background_gradient(cmap="Blues"))
+    st.write(sub_category_Year)
 
 # Create a scatter plot
 data1 = px.scatter(filtered_df, x="Sales", y="Profit", size="Quantity")
