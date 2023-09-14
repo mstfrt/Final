@@ -175,14 +175,6 @@ today_date = dt.datetime(2015, 1, 2)
 # df[df["Customer_ID"].isin(rand_cust)]
 #######################################################################################################################
 
-cus_df = df.groupby("Customer_ID").agg({"Customer_Name": lambda x: x.mode(),
-                                        "Category": lambda x: x.mode()[0]
-                                        })
-
-cus_df["Segment"] = rfm['segment']
-
-cus_final = cus_df.merge(cltv, on="Customer_ID", how="left")
-
 n = 0
 
 st.sidebar.header("Filtre Seçiniz: ")
