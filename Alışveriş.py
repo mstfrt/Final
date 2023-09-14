@@ -90,9 +90,9 @@ n = int(st.sidebar.number_input("Gözlem Sayısı:", max_value=filtered_df.shape
 
 with st.expander("Filtrelenmiş Alışveriş Verisi:"):
     if n == 0:
-        st.write(filtered_df.iloc[:5, :].style.background_gradient(cmap="Blues"))
+        st.write(filtered_df.iloc[:5, :])
     else:
-        st.write(filtered_df.iloc[:n, :].style.background_gradient(cmap="Blues"))
+        st.write(filtered_df.iloc[:n, :])
 
 
 category_df = filtered_df.groupby(by=["Category"], as_index=False)["Sales"].sum()
