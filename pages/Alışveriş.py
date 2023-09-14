@@ -58,8 +58,8 @@ st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allo
 
 df = pd.read_csv(r"dataset/superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
 df.rename(columns=lambda x: x.replace(' ', '_').replace('-', '_'), inplace=True)
-df['Order_Date'] = pd.to_datetime(df['Order_Date'])
-df['Ship_Date'] = pd.to_datetime(df['Ship_Date'])
+df['Order_Date'] = pd.to_datetime(df['Order_Date'], errors='coerce')
+df['Ship_Date'] = pd.to_datetime(df['Ship_Date'], errors='coerce')
 
 
 def grab_col_names(dataframe, cat_th=10, car_th=20):
