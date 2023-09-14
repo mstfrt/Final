@@ -94,9 +94,9 @@ with clm1:
     st.subheader(" :bar_chart: Filtrelenmiş Müşteri Verisi:")
     with st.expander("Müşteri Verisi:"):
         if n1 == 0:
-            st.write(filtered_df1.sort_values(by="clv", ascending=False).style.background_gradient(cmap="Blues"))
+            st.write(filtered_df1.sort_values(by="clv", ascending=False))
         else:
-            st.write(filtered_df1.iloc[:n1, :].sort_values(by="clv", ascending=False).style.background_gradient(cmap="Blues"))
+            st.write(filtered_df1.iloc[:n1, :].sort_values(by="clv", ascending=False))
         clm3, clm4 = st.columns([1, 1])
         with clm3:
             csv = filtered_df1.to_csv(index=False).encode("utf-8")
