@@ -54,7 +54,10 @@ add_logo(r"dataset/mihenk_logo.png")
 st.title(" :bar_chart: Alışveriş Verisi:")
 st.markdown("<style>div.block-container{padding-top:1rem;}</style>", unsafe_allow_html=True)
 
-df = pd.read_csv(r"dataset/final_project_dataset.csv", encoding="ISO-8859-1")
+df = pd.read_csv(r"dataset/superstore_dataset2011-2015.csv", encoding="ISO-8859-1")
+
+df['Order_Date'] = pd.to_datetime(df['Order_Date'], errors='coerce')
+df['Ship_Date'] = pd.to_datetime(df['Ship_Date'], errors='coerce')
 
 cus_final = df.copy()
 
@@ -140,7 +143,7 @@ with cl2:
             help="Click here to download the data as a CSV file",
         )
 
-filtered_df["month_year"] = filtered_df["Order_Date"].dt.to_period("M", errors='coerce')
+filtered_df["month_year"] = filtered_df["Order_Date"].dt.to_period("M")
 st.subheader("Zamana Göre Satışların Dağılım Grafiği")
 
 linechart = pd.DataFrame(
