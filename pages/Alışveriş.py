@@ -209,7 +209,7 @@ elif not category and sub_cat:
     filtered_df = df[df["Sub_Category"].isin(sub_cat)]
 
 
-n = int(st.sidebar.number_input("Gözlem Sayısı:", max_value=filtered_df.shape[0]))
+n = int(st.sidebar.number_input("Gözlem Sayısı:", max_value=filtered_df.shape[0], value=filtered_df.shape[0]))
 
 startDate = pd.to_datetime(df["Order_Date"]).min()
 endDate = pd.to_datetime(df["Order_Date"]).max()
